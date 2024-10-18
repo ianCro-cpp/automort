@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://db1dhtpoo6i26"]
+
+[ext_resource type="PackedScene" uid="uid://ddov50o36l3ww" path="res://corpse.tscn" id="1_dmum5"]
+[ext_resource type="PackedScene" uid="uid://srnfrsi1qwoi" path="res://tool_hub.tscn" id="2_jh802"]
+
+[node name="autopsy_main" type="Node2D"]
+
+[node name="corpse" parent="." instance=ExtResource("1_dmum5")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(128, 128)
+
+[node name="tool_hub" parent="Camera2D" instance=ExtResource("2_jh802")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -128.0
+offset_top = 64.0
+offset_right = 0.0
+offset_bottom = 208.0

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddov50o36l3ww"]
+
+[ext_resource type="Texture2D" uid="uid://cuiwr7m5qgrps" path="res://art/corpse-test.png" id="1_3u40b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn1lj"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dex16"]
+size = Vector2(128, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82ple"]
+size = Vector2(64, 255.625)
+
+[node name="corpse" type="StaticBody2D"]
+
+[node name="ColorRect" type="Sprite2D" parent="."]
+position = Vector2(128, 288)
+texture = ExtResource("1_3u40b")
+
+[node name="head" type="CollisionShape2D" parent="."]
+position = Vector2(128, 64)
+shape = SubResource("RectangleShape2D_kn1lj")
+
+[node name="body" type="CollisionShape2D" parent="."]
+position = Vector2(128, 224)
+shape = SubResource("RectangleShape2D_dex16")
+
+[node name="leg_left" type="CollisionShape2D" parent="."]
+position = Vector2(96, 448.188)
+shape = SubResource("RectangleShape2D_82ple")
+
+[node name="arm_left" type="CollisionShape2D" parent="."]
+position = Vector2(32, 256)
+shape = SubResource("RectangleShape2D_82ple")
+
+[node name="arm_right" type="CollisionShape2D" parent="."]
+position = Vector2(224, 256)
+shape = SubResource("RectangleShape2D_82ple")
+
+[node name="leg_right" type="CollisionShape2D" parent="."]
+position = Vector2(160, 448.375)
+shape = SubResource("RectangleShape2D_82ple")

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://srnfrsi1qwoi"]
+
+[node name="tool_hub" type="Control"]
+layout_mode = 3
+anchor_right = 0.389
+anchor_bottom = 0.198
+offset_right = -176.128
+offset_bottom = -63.304
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_direction = 1
+layout_mode = 0
+offset_left = -8.0
+offset_right = 264.0
+offset_bottom = 65.0
+scale = Vector2(0.83, 0.83)
+pivot_offset = Vector2(136, 32)
+columns = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="GridContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="GridContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="GridContainer/PanelContainer3"]
+layout_mode = 2
+
+[node name="PanelContainer4" type="PanelContainer" parent="GridContainer"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="GridContainer/PanelContainer4"]
+layout_mode = 2
