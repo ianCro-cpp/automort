@@ -15,7 +15,6 @@ offset_right = 264.0
 offset_bottom = 65.0
 scale = Vector2(0.83, 0.83)
 pivot_offset = Vector2(136, 32)
-columns = 4
 
 [node name="PanelContainer" type="PanelContainer" parent="GridContainer"]
 custom_minimum_size = Vector2(65, 65)

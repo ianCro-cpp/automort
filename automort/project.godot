@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="automort"
+run/main_scene="res://autopsy_main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=256
+window/size/viewport_width=288
 window/size/viewport_height=256
 
 [input]
