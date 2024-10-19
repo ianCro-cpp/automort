@@ -1,17 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://db1dhtpoo6i26"]
+[gd_scene load_steps=4 format=3 uid="uid://db1dhtpoo6i26"]
 
+[ext_resource type="Script" path="res://autopsy_main.gd" id="1_2y3ga"]
 [ext_resource type="PackedScene" uid="uid://ddov50o36l3ww" path="res://corpse.tscn" id="1_dmum5"]
 [ext_resource type="PackedScene" uid="uid://srnfrsi1qwoi" path="res://tool_hub.tscn" id="2_jh802"]
 
 [node name="autopsy_main" type="Node2D"]
+script = ExtResource("1_2y3ga")
+
+[node name="autopsy_timer" type="Timer" parent="."]
 
 [node name="corpse" parent="." instance=ExtResource("1_dmum5")]
+position = Vector2(64, 0)
 
 [node name="tool_hub" parent="." instance=ExtResource("2_jh802")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 208.0
-offset_top = 5.0
-offset_right = 208.0
-offset_bottom = 5.0
+offset_left = 536.0
+offset_top = 8.0
+offset_right = 536.0
+offset_bottom = 8.0
+scale = Vector2(0.705, 0.705)
+
+[connection signal="gui_input" from="tool_hub" to="corpse" method="_on_tool_hub_gui_input"]

@@ -1,14 +1,11 @@
-extends StaticBody2D
+extends CanvasGroup
 
 @export var speed = 1500
-@export var corpse_size = 576
-var y_seg = corpse_size / 64
 var screen_size
-
+# Format: (
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -23,3 +20,8 @@ func _process(delta: float) -> void:
 	
 	position += velocity * delta
 	position = position.clamp(screen_size * -1.75, screen_size * 0.25)
+
+
+func _on_body_part_mouse_entered() -> void:
+	if Input.is_action_just_pressed("select"):
+		$body_part.control_part(Globals.itemSelected)
