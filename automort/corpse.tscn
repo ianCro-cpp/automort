@@ -1,44 +1,111 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddov50o36l3ww"]
+[gd_scene load_steps=11 format=3 uid="uid://ddov50o36l3ww"]
 
 [ext_resource type="Texture2D" uid="uid://cuiwr7m5qgrps" path="res://art/corpse-test.png" id="1_3u40b"]
 [ext_resource type="Script" path="res://corpse.gd" id="1_p1aj1"]
+[ext_resource type="Texture2D" uid="uid://hi7mllgdpo1s" path="res://art/omg-gore!.png" id="3_50tgp"]
+[ext_resource type="Script" path="res://body_part.gd" id="3_yssau"]
+[ext_resource type="Script" path="res://torso.gd" id="4_b0xu8"]
+[ext_resource type="Texture2D" uid="uid://ddxs0lgur70b7" path="res://art/omg-more-gore!.jpg" id="6_see4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kn1lj"]
-size = Vector2(128, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dex16"]
-size = Vector2(128, 192)
+size = Vector2(96, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82ple"]
-size = Vector2(64, 255.625)
+size = Vector2(48, 192)
 
-[node name="corpse" type="StaticBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1qdil"]
+radius = 112.0
+height = 528.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dex16"]
+size = Vector2(96, 184)
+
+[node name="corpse" type="CanvasGroup"]
+scale = Vector2(1.75, 1.75)
 script = ExtResource("1_p1aj1")
 
-[node name="ColorRect" type="Sprite2D" parent="."]
+[node name="corpse_sprite_def" type="Sprite2D" parent="."]
 position = Vector2(128, 288)
 texture = ExtResource("1_3u40b")
 
-[node name="head" type="CollisionShape2D" parent="."]
-position = Vector2(128, 64)
+[node name="body_part" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+script = ExtResource("3_yssau")
+
+[node name="head" type="Area2D" parent="body_part"]
+
+[node name="head_collision" type="CollisionShape2D" parent="body_part/head"]
+position = Vector2(128, 72)
 shape = SubResource("RectangleShape2D_kn1lj")
 
-[node name="body" type="CollisionShape2D" parent="."]
-position = Vector2(128, 224)
+[node name="head_gore" type="Sprite2D" parent="body_part/head"]
+position = Vector2(128, 72)
+scale = Vector2(0.54321, 0.252632)
+texture = ExtResource("3_50tgp")
+
+[node name="leg_left" type="Area2D" parent="body_part"]
+
+[node name="leg_left _collision" type="CollisionShape2D" parent="body_part/leg_left"]
+position = Vector2(96, 432)
+shape = SubResource("RectangleShape2D_82ple")
+
+[node name="leg_left_gore" type="Sprite2D" parent="body_part/leg_left"]
+position = Vector2(95.5, 435.25)
+scale = Vector2(0.203704, 0.640351)
+texture = ExtResource("3_50tgp")
+
+[node name="arm_left" type="Area2D" parent="body_part"]
+
+[node name="arm_left_collision" type="CollisionShape2D" parent="body_part/arm_left"]
+position = Vector2(48, 224)
+shape = SubResource("RectangleShape2D_82ple")
+
+[node name="arm_left_gore" type="Sprite2D" parent="body_part/arm_left"]
+position = Vector2(48, 232.813)
+scale = Vector2(0.236111, 0.567105)
+texture = ExtResource("3_50tgp")
+
+[node name="arm_right" type="Area2D" parent="body_part"]
+
+[node name="arm_right_collision" type="CollisionShape2D" parent="body_part/arm_right"]
+position = Vector2(208, 224)
+shape = SubResource("RectangleShape2D_82ple")
+
+[node name="arm_right_gore" type="Sprite2D" parent="body_part/arm_right"]
+position = Vector2(208, 233)
+scale = Vector2(0.246914, 0.568421)
+texture = ExtResource("3_50tgp")
+
+[node name="leg_right" type="Area2D" parent="body_part"]
+
+[node name="leg_right_collision" type="CollisionShape2D" parent="body_part/leg_right"]
+position = Vector2(160, 432)
+shape = SubResource("RectangleShape2D_82ple")
+
+[node name="leg_right_gore" type="Sprite2D" parent="body_part/leg_right"]
+position = Vector2(159.5, 435.25)
+scale = Vector2(0.203704, 0.640351)
+texture = ExtResource("3_50tgp")
+
+[node name="corpse_shape" type="CollisionShape2D" parent="body_part"]
+position = Vector2(128, 280)
+shape = SubResource("CapsuleShape2D_1qdil")
+
+[node name="torso" type="Area2D" parent="body_part"]
+script = ExtResource("4_b0xu8")
+
+[node name="torso_collision" type="CollisionShape2D" parent="body_part/torso"]
+position = Vector2(128, 228)
 shape = SubResource("RectangleShape2D_dex16")
 
-[node name="leg_left" type="CollisionShape2D" parent="."]
-position = Vector2(96, 448.188)
-shape = SubResource("RectangleShape2D_82ple")
+[node name="torso_gore" type="Sprite2D" parent="body_part/torso"]
+position = Vector2(128, 228)
+scale = Vector2(0.5, 0.614912)
+texture = ExtResource("3_50tgp")
 
-[node name="arm_left" type="CollisionShape2D" parent="."]
-position = Vector2(32, 256)
-shape = SubResource("RectangleShape2D_82ple")
+[node name="torso_ripped_cage" type="Sprite2D" parent="body_part/torso"]
+position = Vector2(128, 228)
+scale = Vector2(0.523176, 0.661549)
+texture = ExtResource("6_see4y")
 
-[node name="arm_right" type="CollisionShape2D" parent="."]
-position = Vector2(224, 256)
-shape = SubResource("RectangleShape2D_82ple")
-
-[node name="leg_right" type="CollisionShape2D" parent="."]
-position = Vector2(160, 448.375)
-shape = SubResource("RectangleShape2D_82ple")
+[connection signal="mouse_entered" from="body_part" to="." method="_on_body_part_mouse_entered"]
