@@ -1,14 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddov50o36l3ww"]
+[gd_scene load_steps=9 format=3 uid="uid://ddov50o36l3ww"]
 
 [ext_resource type="Texture2D" uid="uid://cuiwr7m5qgrps" path="res://art/corpse-test.png" id="1_3u40b"]
 [ext_resource type="Script" path="res://corpse.gd" id="1_p1aj1"]
 [ext_resource type="Texture2D" uid="uid://hi7mllgdpo1s" path="res://art/omg-gore!.png" id="3_50tgp"]
-[ext_resource type="Script" path="res://body_part.gd" id="3_u1dd4"]
 [ext_resource type="Script" path="res://torso.gd" id="4_b0xu8"]
 [ext_resource type="Texture2D" uid="uid://ddxs0lgur70b7" path="res://art/omg-more-gore!.jpg" id="6_see4y"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_746w7"]
-size = Vector2(256, 576)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kn1lj"]
 size = Vector2(96, 96)
@@ -27,90 +23,82 @@ script = ExtResource("1_p1aj1")
 position = Vector2(128, 288)
 texture = ExtResource("1_3u40b")
 
-[node name="body_part" type="Area2D" parent="."]
-script = ExtResource("3_u1dd4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="body_part"]
-position = Vector2(128, 288)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_746w7")
-
-[node name="head" type="Area2D" parent="body_part"]
+[node name="head" type="Area2D" parent="."]
 scale = Vector2(1, 1)
 
-[node name="head_collision" type="CollisionShape2D" parent="body_part/head"]
+[node name="head_collision" type="CollisionShape2D" parent="head"]
 position = Vector2(128, 72)
 shape = SubResource("RectangleShape2D_kn1lj")
 
-[node name="head_gore" type="Sprite2D" parent="body_part/head"]
+[node name="head_gore" type="Sprite2D" parent="head"]
 position = Vector2(128, 72)
 scale = Vector2(0.54321, 0.252632)
 texture = ExtResource("3_50tgp")
 
-[node name="leg_left" type="Area2D" parent="body_part"]
+[node name="leg_left" type="Area2D" parent="."]
 scale = Vector2(1, 1)
 
-[node name="leg_left _collision" type="CollisionShape2D" parent="body_part/leg_left"]
+[node name="leg_left _collision" type="CollisionShape2D" parent="leg_left"]
 position = Vector2(96, 432)
 shape = SubResource("RectangleShape2D_82ple")
 
-[node name="leg_left_gore" type="Sprite2D" parent="body_part/leg_left"]
+[node name="leg_left_gore" type="Sprite2D" parent="leg_left"]
 position = Vector2(95.5, 435.25)
 scale = Vector2(0.203704, 0.640351)
 texture = ExtResource("3_50tgp")
 
-[node name="arm_left" type="Area2D" parent="body_part"]
+[node name="arm_left" type="Area2D" parent="."]
 scale = Vector2(1, 1)
 
-[node name="arm_left_collision" type="CollisionShape2D" parent="body_part/arm_left"]
+[node name="arm_left_collision" type="CollisionShape2D" parent="arm_left"]
 position = Vector2(48, 224)
 shape = SubResource("RectangleShape2D_82ple")
 
-[node name="arm_left_gore" type="Sprite2D" parent="body_part/arm_left"]
+[node name="arm_left_gore" type="Sprite2D" parent="arm_left"]
 position = Vector2(48, 232.813)
 scale = Vector2(0.236111, 0.567105)
 texture = ExtResource("3_50tgp")
 
-[node name="arm_right" type="Area2D" parent="body_part"]
+[node name="arm_right" type="Area2D" parent="."]
 scale = Vector2(1, 1)
 
-[node name="arm_right_collision" type="CollisionShape2D" parent="body_part/arm_right"]
+[node name="arm_right_collision" type="CollisionShape2D" parent="arm_right"]
 position = Vector2(208, 224)
 shape = SubResource("RectangleShape2D_82ple")
 
-[node name="arm_right_gore" type="Sprite2D" parent="body_part/arm_right"]
+[node name="arm_right_gore" type="Sprite2D" parent="arm_right"]
 position = Vector2(208, 233)
 scale = Vector2(0.246914, 0.568421)
 texture = ExtResource("3_50tgp")
 
-[node name="leg_right" type="Area2D" parent="body_part"]
+[node name="leg_right" type="Area2D" parent="."]
 scale = Vector2(1, 1)
 
-[node name="leg_right_collision" type="CollisionShape2D" parent="body_part/leg_right"]
+[node name="leg_right_collision" type="CollisionShape2D" parent="leg_right"]
 position = Vector2(160, 432)
 shape = SubResource("RectangleShape2D_82ple")
 
-[node name="leg_right_gore" type="Sprite2D" parent="body_part/leg_right"]
+[node name="leg_right_gore" type="Sprite2D" parent="leg_right"]
 position = Vector2(159.5, 435.25)
 scale = Vector2(0.203704, 0.640351)
 texture = ExtResource("3_50tgp")
 
-[node name="torso" type="Area2D" parent="body_part"]
+[node name="torso" type="Area2D" parent="."]
 scale = Vector2(1, 1)
 script = ExtResource("4_b0xu8")
 
-[node name="torso_collision" type="CollisionShape2D" parent="body_part/torso"]
+[node name="torso_collision" type="CollisionShape2D" parent="torso"]
 position = Vector2(128, 228)
 shape = SubResource("RectangleShape2D_dex16")
 
-[node name="torso_gore" type="Sprite2D" parent="body_part/torso"]
+[node name="torso_gore" type="Sprite2D" parent="torso"]
 position = Vector2(128, 228)
 scale = Vector2(0.5, 0.614912)
 texture = ExtResource("3_50tgp")
 
-[node name="torso_ripped_cage" type="Sprite2D" parent="body_part/torso"]
+[node name="torso_ripped_cage" type="Sprite2D" parent="torso"]
 position = Vector2(128, 228)
 scale = Vector2(0.523176, 0.661549)
 texture = ExtResource("6_see4y")
 
-[connection signal="mouse_entered" from="body_part/head" to="." method="_on_head_mouse_entered"]
+[connection signal="input_event" from="arm_left" to="." method="_on_arm_left_input_event"]

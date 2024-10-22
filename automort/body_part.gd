@@ -1,19 +1,20 @@
-extends Node2D
+extends Area2D
 
 class_name BodyPart
 
 var dissected = false
 var analyzed = false
-var fished = false
+var fished = true
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()
-
-func control_part(item_ind: int) -> void:
-	if item_ind == 0 and dissected == false:
-		show()
+	
+func control_part(item_ind: int):
+	if item_ind == 0 and not dissected:
 		dissected = true
-	if item_ind == 1 and analyzed == false:
+		show()
+	if item_ind == 1 and not analyzed:
 		analyzed = true
-	if item_ind == 2 and (analyzed == true and fished == false):
+	if item_ind == 2 and (analyzed and not fished):
 		fished = false

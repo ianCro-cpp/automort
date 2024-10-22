@@ -33,3 +33,4 @@ item_3/text = "Shears"
 item_3/icon = ExtResource("4_a8l7h")
 
 [connection signal="gui_input" from="ItemList" to="." method="_on_item_list_gui_input"]
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
